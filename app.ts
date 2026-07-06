@@ -84,10 +84,14 @@ Generate the structured LinkedIn search parameters and Boolean search string bas
       const data = JSON.parse(resultText);
       res.json(data);
     } catch (error: any) {
-      console.error("Error generating LinkedIn search parameters:", error);
+      console.error("Error generating LinkedIn search parameters:", {
+        message: error?.message,
+        status: error?.status,
+        stack: error?.stack?.split("\n")[0]
+      });
       res.status(500).json({
-        error: error.message || "Failed to generate search parameters.",
-        details: error.status ? `Status: ${error.status}. Raw: ${JSON.stringify(error)}` : error.toString()
+        error: error?.message || "Failed to generate search parameters.",
+        details: error?.toString() || "Unknown error"
       });
     }
   });
@@ -229,12 +233,24 @@ Generate exactly 2 distinct, highly creative, and highly personalized email vari
       const data = JSON.parse(cleanJson);
       res.json(data);
     } catch (error: any) {
-      console.error("Error generating outreach emails:", error);
+      console.error("Error generating outreach emails:", {
+        message: error?.message,
+        status: error?.status,
+        stack: error?.stack?.split("\n")[0]
+      });
       res.status(500).json({
-        error: error.message || "Failed to generate personalized outreach emails.",
-        details: error.status ? `Status: ${error.status}. Raw: ${JSON.stringify(error)}` : error.toString()
+        error: error?.message || "Failed to generate personalized outreach emails.",
+        details: error?.toString() || "Unknown error"
       });
     }
+  });
+
+  app.use((err: any, req: any, res: any, next: any) => {
+    console.error("Unhandled error:", err);
+    res.status(500).json({
+      error: "An internal server error occurred.",
+      details: err?.message || String(err)
+    });
   });
 
   return app;
