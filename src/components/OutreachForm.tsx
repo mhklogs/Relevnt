@@ -1,5 +1,6 @@
 import { GeneratorInputs } from "../types";
-import { Sparkles, FileText } from "lucide-react";
+import { PRESETS } from "../data/presets";
+import { Sparkles, FileText, Zap } from "lucide-react";
 
 interface OutreachFormProps {
   inputs: GeneratorInputs;
@@ -44,7 +45,21 @@ export default function OutreachForm({
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-wrap gap-1.5">
+              <span className="text-[10px] text-[#a8a29e] font-medium mr-1 self-center">Quick Presets:</span>
+              {PRESETS.map((preset) => (
+                <button
+                  key={preset.id}
+                  type="button"
+                  onClick={() => handleInputChange(preset.inputs.targetDescription)}
+                  className="px-2 py-1 text-[10px] bg-[#1c1917] hover:bg-[#292524] border border-[#292524] rounded-md font-medium text-[#a8a29e] hover:text-[#fafaf9] flex items-center gap-1 transition-colors cursor-pointer"
+                >
+                  <Zap className="w-2.5 h-2.5 text-amber-500" />
+                  {preset.label}
+                </button>
+              ))}
+            </div>
             <textarea
               id="targetDescription"
               rows={8}
