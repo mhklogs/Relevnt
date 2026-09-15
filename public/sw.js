@@ -1,9 +1,11 @@
-const CACHE_NAME = "sdr-generator-v2";
+const CACHE_NAME = "relevnt-v3";
 const ASSETS = [
   "/",
   "/index.html",
   "/manifest.json",
-  "/icon.jpg"
+  "/favicon.svg",
+  "/icon.jpg",
+  "/RusticRoadway.otf"
 ];
 
 self.addEventListener("install", (e) => {

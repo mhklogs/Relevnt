@@ -1,9 +1,22 @@
 import express from "express";
 import { GoogleGenAI, Type } from "@google/genai";
 
+function hasApiKey() {
+  const apiKey = process.env.GEMINI_API_KEY;
+  return !!(apiKey && apiKey.trim() !== "" && apiKey !== "MY_GEMINI_API_KEY");
+}
+
 export function createApp() {
   const app = express();
   app.use(express.json());
+
+  // Health endpoint: lets the client degrade gracefully when no API key is configured
+  app.get("/api/health", (_req, res) => {
+    res.json({
+      status: "ok",
+      aiConfigured: hasApiKey(),
+    });
+  });
 
   app.post("/api/generate-search-filters", async (req, res) => {
     try {
@@ -14,8 +27,8 @@ export function createApp() {
       }
 
       const apiKey = process.env.GEMINI_API_KEY;
-      if (!apiKey || apiKey.trim() === "" || apiKey === "MY_GEMINI_API_KEY") {
-        return res.status(401).json({ error: "Gemini API Key is missing on the server. Please add GEMINI_API_KEY to your Vercel Environment Variables." });
+      if (!hasApiKey()) {
+        return res.status(401).json({ error: "Gemini API Key is missing on the server. Please add GEMINI_API_KEY to your environment variables." });
       }
 
       const ai = new GoogleGenAI({
@@ -115,8 +128,8 @@ Generate the structured LinkedIn search parameters and Boolean search string bas
       }
 
       const apiKey = process.env.GEMINI_API_KEY;
-      if (!apiKey || apiKey.trim() === "" || apiKey === "MY_GEMINI_API_KEY") {
-        return res.status(401).json({ error: "Gemini API Key is missing on the server. Please add GEMINI_API_KEY to your Vercel Environment Variables." });
+      if (!hasApiKey()) {
+        return res.status(401).json({ error: "Gemini API Key is missing on the server. Please add GEMINI_API_KEY to your environment variables." });
       }
 
       const ai = new GoogleGenAI({

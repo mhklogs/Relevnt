@@ -69,6 +69,14 @@ export default function App() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [showInstallBtn, setShowInstallBtn] = useState(false);
   const [showIosTooltip, setShowIosTooltip] = useState(false);
+  const [aiConfigured, setAiConfigured] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    fetch("/api/health")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => setAiConfigured(data ? Boolean(data.aiConfigured) : null))
+      .catch(() => setAiConfigured(null));
+  }, []);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: Event) => {
@@ -320,6 +328,24 @@ export default function App() {
           </div>
         )}
         
+        {aiConfigured === false && (
+          <div className="mb-6 bg-amber-950/30 border border-amber-600/40 rounded-2xl p-4 flex items-center justify-between gap-3 text-xs text-amber-200 shrink-0" id="api-key-banner">
+            <div className="flex items-center gap-2">
+              <Info className="w-4 h-4 shrink-0 text-amber-400" />
+              <span>
+                <strong>AI not configured:</strong> Add a <code className="bg-amber-900/40 px-1 py-0.5 rounded">GEMINI_API_KEY</code> to your server environment to unlock AI generation. The rest of the app works fine.
+              </span>
+            </div>
+            <button
+              onClick={() => setAiConfigured(null)}
+              className="text-amber-300 hover:text-amber-100 p-1 cursor-pointer rounded-lg hover:bg-amber-900/40 transition-all"
+              aria-label="Dismiss"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
         {/* Navigation Tabs */}
         <div className="flex border-b border-[#292524] mb-8 gap-4" id="workflow-tabs">
           <button
@@ -864,6 +890,15 @@ export default function App() {
             <span>1. Sourcing Parameters</span>
             <span>•</span>
             <span>2. Hyper-Personalized Emails</span>
+            <span>•</span>
+            <a
+              href="https://github.com/mhklogs/Relevnt"
+              target="_blank"
+              rel="noreferrer"
+              className="text-red-400 hover:text-red-300 hover:underline transition-colors"
+            >
+              View Source
+            </a>
           </div>
         </div>
       </footer>
