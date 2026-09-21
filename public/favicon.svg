@@ -1,6 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <!-- Thick wave representing the main pulse -->
-  <path d="M2 16 Q 9 4, 16 16 T 30 16" stroke="#0ed5c9" stroke-width="4" stroke-linecap="round" />
-  <!-- Thinner wave representing the secondary pulse -->
-  <path d="M6 20 Q 11 11, 16 20 T 26 20" stroke="#0ed5c9" stroke-width="2" stroke-linecap="round" opacity="0.75" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <g stroke="#4DE3FF" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <circle cx="24" cy="24" r="18" stroke-width="4" stroke-dasharray="86 27" transform="rotate(-130 24 24)"/>
+    <circle cx="24" cy="24" r="12" stroke-width="3.4" stroke-dasharray="57 39" transform="rotate(-70 24 24)" opacity="0.6"/>
+    <circle cx="24" cy="24" r="6" stroke-width="2.6" stroke-dasharray="19 37" transform="rotate(-130 24 24)" opacity="0.35"/>
+    <path d="M24 3.5v3.5M24 41v3.5M3.5 24h3.5M41 24h3.5" stroke-width="3" opacity="0.5"/>
+    <path d="M24 24l14 0" stroke-width="4" transform="rotate(-40 24 24)" opacity="0.9"/>
+  </g>
+  <circle cx="35.5" cy="14.4" r="4" fill="#4DE3FF"/>
+  <circle cx="24" cy="24" r="4" fill="#4DE3FF"/>
 </svg>

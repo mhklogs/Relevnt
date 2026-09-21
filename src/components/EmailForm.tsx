@@ -1,5 +1,6 @@
 import { OutreachInputs } from "../types";
 import { Sparkles, User, Briefcase, FileText } from "lucide-react";
+import type { ReactNode, ElementType } from "react";
 
 interface EmailFormProps {
   inputs: OutreachInputs;
@@ -32,6 +33,22 @@ export default function EmailForm({
     inputs.rawLinkedInActivity.trim() !== "" &&
     inputs.outreachGoal.trim() !== "";
 
+  const Panel = ({ children }: { children: ReactNode }) => (
+    <div className="field-card flex flex-col gap-4 p-5">{children}</div>
+  );
+
+  const Header = ({ icon: Icon, title, sub }: { icon: ElementType; title: string; sub: string }) => (
+    <div className="flex items-center gap-3 border-b border-line/60 pb-3">
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-volt/30 bg-volt/10 text-volt">
+        <Icon className="h-4 w-4" />
+      </span>
+      <div>
+        <h3 className="font-head text-sm font-semibold text-ink">{title}</h3>
+        <p className="text-[11px] text-ink-soft">{sub}</p>
+      </div>
+    </div>
+  );
+
   return (
     <form
       onSubmit={(e) => {
@@ -42,19 +59,10 @@ export default function EmailForm({
       id="email-generator-form"
     >
       {/* Section 0: Outreach Goal */}
-      <div className="bg-[#0c0a09] border border-[#292524] rounded-xl p-5 shadow-xs flex flex-col gap-4" id="goal-section">
-        <div className="flex items-center gap-2 border-b border-[#1c1917] pb-3">
-          <div className="p-1.5 bg-[#1c1917] rounded-md text-[#fafaf9]">
-            <Sparkles className="w-4 h-4 text-red-500" />
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-[#fafaf9]">Outreach Goal & Style</h3>
-            <p className="text-[11px] text-[#a8a29e]">Tell the AI what type of message to write based on this prospect.</p>
-          </div>
-        </div>
-
+      <Panel>
+        <Header icon={Sparkles} title="Outreach Goal & Style" sub="Tell the AI what type of message to write based on this prospect." />
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="outreachGoal" className="text-xs font-medium text-[#e7e5e4]">
+          <label htmlFor="outreachGoal" className="field-label">
             Outreach Goal / Message Type
           </label>
           <input
@@ -63,30 +71,21 @@ export default function EmailForm({
             placeholder="e.g., A hyper-personalized B2B cold email under 100 words"
             value={inputs.outreachGoal}
             onChange={(e) => handleInputChange("outreachGoal", e.target.value)}
-            className="px-3 py-2 text-sm bg-[#1c1917] border border-[#292524] text-[#fafaf9] rounded-lg focus:outline-none focus:border-[#44403c] focus:bg-black transition-colors font-sans"
+            className="input-field"
             required
           />
-          <p className="text-[10px] text-[#a8a29e]">
+          <p className="text-[10px] text-ink-soft">
             Examples: "LinkedIn connection request under 300 chars", "Soft partnership inquiry", "Casual follow-up".
           </p>
         </div>
-      </div>
+      </Panel>
 
       {/* Section 1: Prospect */}
-      <div className="bg-[#0c0a09] border border-[#292524] rounded-xl p-5 shadow-xs flex flex-col gap-4" id="prospect-section">
-        <div className="flex items-center gap-2 border-b border-[#1c1917] pb-3">
-          <div className="p-1.5 bg-[#1c1917] rounded-md text-[#fafaf9]">
-            <User className="w-4 h-4" />
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-[#fafaf9]">Prospect Information</h3>
-            <p className="text-[11px] text-[#a8a29e]">Who are you sending this hyper-personalized email to?</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <Panel>
+        <Header icon={User} title="Prospect Information" sub="Who are you sending this hyper-personalized email to?" />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="prospectName" className="text-xs font-medium text-[#e7e5e4]">
+            <label htmlFor="prospectName" className="field-label">
               Prospect Full Name
             </label>
             <input
@@ -95,13 +94,13 @@ export default function EmailForm({
               placeholder="e.g., Sarah Vance"
               value={inputs.prospectName}
               onChange={(e) => handleInputChange("prospectName", e.target.value)}
-              className="px-3 py-2 text-sm bg-[#1c1917] border border-[#292524] text-[#fafaf9] rounded-lg focus:outline-none focus:border-[#44403c] focus:bg-black transition-colors"
+              className="input-field"
               required
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="prospectTitle" className="text-xs font-medium text-[#e7e5e4]">
+            <label htmlFor="prospectTitle" className="field-label">
               Prospect Title / Role
             </label>
             <input
@@ -110,15 +109,15 @@ export default function EmailForm({
               placeholder="e.g., VP of Product"
               value={inputs.prospectTitle}
               onChange={(e) => handleInputChange("prospectTitle", e.target.value)}
-              className="px-3 py-2 text-sm bg-[#1c1917] border border-[#292524] text-[#fafaf9] rounded-lg focus:outline-none focus:border-[#44403c] focus:bg-black transition-colors"
+              className="input-field"
               required
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="flex flex-col gap-1.5 md:col-span-1">
-            <label htmlFor="companyName" className="text-xs font-medium text-[#e7e5e4]">
+            <label htmlFor="companyName" className="field-label">
               Company Name
             </label>
             <input
@@ -127,13 +126,13 @@ export default function EmailForm({
               placeholder="e.g., Acme Corp"
               value={inputs.companyName}
               onChange={(e) => handleInputChange("companyName", e.target.value)}
-              className="px-3 py-2 text-sm bg-[#1c1917] border border-[#292524] text-[#fafaf9] rounded-lg focus:outline-none focus:border-[#44403c] focus:bg-black transition-colors"
+              className="input-field"
               required
             />
           </div>
 
           <div className="flex flex-col gap-1.5 md:col-span-2">
-            <label htmlFor="companyValueProp" className="text-xs font-medium text-[#e7e5e4]">
+            <label htmlFor="companyValueProp" className="field-label">
               What their company does (Value Proposition)
             </label>
             <input
@@ -142,28 +141,19 @@ export default function EmailForm({
               placeholder="e.g., Offers dynamic cloud optimization tools for engineering fleets"
               value={inputs.companyValueProp}
               onChange={(e) => handleInputChange("companyValueProp", e.target.value)}
-              className="px-3 py-2 text-sm bg-[#1c1917] border border-[#292524] text-[#fafaf9] rounded-lg focus:outline-none focus:border-[#44403c] focus:bg-black transition-colors"
+              className="input-field"
               required
             />
           </div>
         </div>
-      </div>
+      </Panel>
 
       {/* Section 2: Sender */}
-      <div className="bg-[#0c0a09] border border-[#292524] rounded-xl p-5 shadow-xs flex flex-col gap-4" id="sender-section">
-        <div className="flex items-center gap-2 border-b border-[#1c1917] pb-3">
-          <div className="p-1.5 bg-[#1c1917] rounded-md text-[#fafaf9]">
-            <Briefcase className="w-4 h-4" />
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-[#fafaf9]">Your Information (The Sender)</h3>
-            <p className="text-[11px] text-[#a8a29e]">What specific B2B outcome do you deliver?</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <Panel>
+        <Header icon={Briefcase} title="Your Information (The Sender)" sub="What specific B2B outcome do you deliver?" />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="senderName" className="text-xs font-medium text-[#e7e5e4]">
+            <label htmlFor="senderName" className="field-label">
               Your Name
             </label>
             <input
@@ -172,13 +162,13 @@ export default function EmailForm({
               placeholder="e.g., John Doe"
               value={inputs.senderName}
               onChange={(e) => handleInputChange("senderName", e.target.value)}
-              className="px-3 py-2 text-sm bg-[#1c1917] border border-[#292524] text-[#fafaf9] rounded-lg focus:outline-none focus:border-[#44403c] focus:bg-black transition-colors"
+              className="input-field"
               required
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="senderCompany" className="text-xs font-medium text-[#e7e5e4]">
+            <label htmlFor="senderCompany" className="field-label">
               Your Company Name
             </label>
             <input
@@ -187,14 +177,14 @@ export default function EmailForm({
               placeholder="e.g., LatencyX"
               value={inputs.senderCompany}
               onChange={(e) => handleInputChange("senderCompany", e.target.value)}
-              className="px-3 py-2 text-sm bg-[#1c1917] border border-[#292524] text-[#fafaf9] rounded-lg focus:outline-none focus:border-[#44403c] focus:bg-black transition-colors"
+              className="input-field"
               required
             />
           </div>
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="senderValueProp" className="text-xs font-medium text-[#e7e5e4]">
+          <label htmlFor="senderValueProp" className="field-label">
             One Clear Outcome Delivered & Value Proof
           </label>
           <textarea
@@ -203,27 +193,18 @@ export default function EmailForm({
             placeholder="e.g., We help engineering leaders reduce AWS compute bills by 30% through automated instance termination metrics."
             value={inputs.senderValueProp}
             onChange={(e) => handleInputChange("senderValueProp", e.target.value)}
-            className="px-3 py-2 text-sm bg-[#1c1917] border border-[#292524] text-[#fafaf9] rounded-lg focus:outline-none focus:border-[#44403c] focus:bg-black transition-colors resize-none"
+            className="input-field resize-none"
             required
           />
-          <p className="text-[10px] text-[#a8a29e]">
+          <p className="text-[10px] text-ink-soft">
             Keep it concrete and data-backed (e.g., "reduce churn by 20%", "increase pipeline volume by 1.5x").
           </p>
         </div>
-      </div>
+      </Panel>
 
       {/* Section 3: LinkedIn activity */}
-      <div className="bg-[#0c0a09] border border-[#292524] rounded-xl p-5 shadow-xs flex flex-col gap-4" id="linkedin-section">
-        <div className="flex items-center gap-2 border-b border-[#1c1917] pb-3">
-          <div className="p-1.5 bg-[#1c1917] rounded-md text-[#fafaf9]">
-            <FileText className="w-4 h-4" />
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-[#fafaf9]">Prospect Recent LinkedIn Activity (Keywords)</h3>
-            <p className="text-[11px] text-[#a8a29e]">Copy & paste a recent post, comment, or article written by the prospect.</p>
-          </div>
-        </div>
-
+      <Panel>
+        <Header icon={FileText} title="Prospect Recent LinkedIn Activity (Keywords)" sub="Copy & paste a recent post, comment, or article written by the prospect." />
         <div className="flex flex-col gap-1.5">
           <textarea
             id="rawLinkedInActivity"
@@ -231,26 +212,20 @@ export default function EmailForm({
             placeholder="Paste raw LinkedIn posts, updates, or comments here. The AI will extract deep hooks and react to their unique phrase or data point..."
             value={inputs.rawLinkedInActivity}
             onChange={(e) => handleInputChange("rawLinkedInActivity", e.target.value)}
-            className="px-3 py-2.5 text-sm bg-[#1c1917] border border-[#292524] rounded-lg focus:outline-none focus:border-[#44403c] focus:bg-black transition-colors font-sans text-[#fafaf9] leading-relaxed"
+            className="input-field leading-relaxed"
             required
           />
         </div>
-      </div>
+      </Panel>
 
       {/* Submit */}
       <button
         type="submit"
         id="generate-email-btn"
         disabled={!isFormValid || isGenerating}
-        className={`w-full py-3.5 px-4 rounded-xl font-medium text-sm flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${
-          isGenerating
-            ? "bg-[#292524] text-[#78716c] cursor-not-allowed hover:scale-100 active:scale-100"
-            : isFormValid
-            ? "bg-[#fafaf9] text-[#1c1917] hover:bg-[#e7e5e4] shadow-md hover:shadow-lg active:scale-[0.99]"
-            : "bg-[#1c1917] text-[#78716c] border border-[#292524] cursor-not-allowed hover:scale-100 active:scale-100"
-        }`}
+        className="btn-volt w-full px-4 py-3.5 text-sm"
       >
-        <Sparkles className={`w-4 h-4 ${isGenerating ? "animate-spin text-red-500" : "text-red-500"}`} />
+        <Sparkles className={`h-4 w-4 ${isGenerating ? "animate-spin" : ""}`} />
         {isGenerating ? "Analyzing Activity & Writing Email..." : "Generate Personalized Cold Email"}
       </button>
     </form>
