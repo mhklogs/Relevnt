@@ -215,7 +215,7 @@ function ScoreSurface() {
               cx="40"
               cy="40"
               r={R}
-              stroke="#4DE3FF"
+              stroke="#0d9488"
               strokeWidth="6"
               strokeLinecap="round"
               fill="none"
@@ -224,7 +224,7 @@ function ScoreSurface() {
             />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="font-display text-4xl font-bold text-glow-volt text-volt">82</span>
+            <span className="font-display text-4xl font-bold text-volt">82</span>
             <span className="font-mono text-[10px]  tracking-[0.18em] text-muted">/ 100</span>
           </div>
         </div>
@@ -258,7 +258,7 @@ function ScoreSurface() {
                 </div>
                 <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-[rgba(140,160,200,0.14)]">
                   <div
-                    className="h-full rounded-full bg-volt shadow-[0_0_10px_rgba(77,227,255,0.7)]"
+                    className="h-full rounded-full bg-volt"
                     style={{ width: `${gap.g * 100}%` }}
                   />
                 </div>
@@ -512,10 +512,10 @@ export default function App() {
                 <RelevntLogo size={26} />
               </span>
               <span className="flex min-w-0 flex-col items-start">
-                <span className="font-display text-base font-bold  tracking-[0.14em] text-ink">
+                <span className="font-display text-base font-bold tracking-wide text-ink">
                   Relevnt
                 </span>
-                <span className="max-w-full truncate font-mono text-[9px]  tracking-[0.2em] text-muted">
+                <span className="max-w-full truncate font-mono text-[9px] tracking-widest text-muted">
                   content ranking agent
                 </span>
               </span>
@@ -561,7 +561,7 @@ export default function App() {
           </div>
 
           {menuOpen && (
-            <div className="border-t border-line/60 bg-[#07090f]/95 px-4 pb-5 pt-3 backdrop-blur-xl md:hidden">
+            <div className="border-t border-line/60 bg-paper/95 px-4 pb-5 pt-3 backdrop-blur-xl md:hidden">
               <nav className="flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <button
@@ -596,35 +596,25 @@ export default function App() {
       <main>
         {/* ================= HERO ================= */}
         <section className="relative overflow-hidden" id="top">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 hud-grid" />
-            <div className="aurora -top-24 left-[12%] h-80 w-80 bg-volt/15" />
-            <div className="aurora top-16 right-[6%] h-72 w-72 bg-[#4EF2BA]/10" />
-            <div className="absolute -bottom-20 left-1/2 h-64 w-[130%] -translate-x-1/2 rounded-[100%] bg-volt/10 blur-3xl" />
-          </div>
-
           <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 md:pb-24 md:pt-24 lg:px-8">
             <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
               <div>
                 <AnimateIn>
-                  <span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs">
-                    <RelevntLogo size={15} />
-                    <span className="font-head font-semibold  tracking-[0.18em] text-ink-soft">
-                      Content relevance &amp; ranking agent
-                    </span>
-                  </span>
+                  <p className="badge-label text-muted">
+                    Content relevance &amp; ranking agent
+                  </p>
                 </AnimateIn>
 
                 <AnimateIn delay={80}>
-                  <h1 className="mt-7 font-display text-4xl font-bold  leading-[1.05] leading-tight sm:text-5xl md:text-6xl">
+                  <h1 className="mt-7 font-display">
                     Know your{" "}
-                    <span className="text-glow-volt text-volt">relevance score</span>{" "}
+                    <span className="text-volt">relevance score</span>{" "}
                     before you publish
                   </h1>
                 </AnimateIn>
 
                 <AnimateIn delay={160}>
-                  <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg">
+                  <p className="mt-6 max-w-xl text-ink-soft">
                     Relevnt scores any piece of content against the target topic you
                     want to own — topical-authority readiness in seconds, with the
                     gaps ranked in the order to close them.
@@ -647,7 +637,7 @@ export default function App() {
                       See how it works
                     </button>
                   </div>
-                  <p className="mt-5 font-mono text-xs  tracking-[0.14em] text-muted">
+                  <p className="mt-5 font-mono text-xs tracking-widest text-muted">
                     Try it free — paste your content + target topic
                   </p>
                   <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
@@ -671,44 +661,42 @@ export default function App() {
             <AnimateIn delay={320}>
               <div className="mt-14 grid grid-cols-2 gap-6 border-t border-line/60 pt-8 sm:grid-cols-4">
                 <div className="text-center">
-                  <p className="font-display text-3xl text-glow-white md:text-4xl">0-100</p>
-                  <p className="mt-1 font-mono text-[11px]  tracking-[0.22em] text-muted">relevance score</p>
+                  <p className="font-display text-3xl text-ink md:text-4xl">0-100</p>
+                  <p className="mt-1 font-mono text-[11px] text-muted">relevance score</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-display text-3xl text-glow-white md:text-4xl">ranked</p>
-                  <p className="mt-1 font-mono text-[11px]  tracking-[0.22em] text-muted">gap list</p>
+                  <p className="font-display text-3xl text-ink md:text-4xl">ranked</p>
+                  <p className="mt-1 font-mono text-[11px] text-muted">gap list</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-display text-3xl text-glow-white md:text-4xl">30s</p>
-                  <p className="mt-1 font-mono text-[11px]  tracking-[0.22em] text-muted">to first score</p>
+                  <p className="font-display text-3xl text-ink md:text-4xl">30s</p>
+                  <p className="mt-1 font-mono text-[11px] text-muted">to first score</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-display text-3xl text-glow-white md:text-4xl">0</p>
-                  <p className="mt-1 font-mono text-[11px]  tracking-[0.22em] text-muted">credit cards</p>
+                  <p className="font-display text-3xl text-ink md:text-4xl">0</p>
+                  <p className="mt-1 font-mono text-[11px] text-muted">credit cards</p>
                 </div>
               </div>
             </AnimateIn>
           </div>
 
           <div className="flex justify-center pb-6">
-            <ChevronDown className="h-6 w-6 animate-bounce text-muted" />
+            <ChevronDown className="h-6 w-6 text-muted" />
           </div>
         </section>
 
         {/* ================= WORKBENCH ================= */}
         <section className="relative overflow-hidden" id="score-form">
           <div className="absolute inset-0">
-            <div className="aurora -top-16 right-[20%] h-72 w-72 bg-volt/10" />
-            <div className="absolute inset-0 hud-grid opacity-60" />
           </div>
           <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-24 lg:px-8">
             <AnimateIn>
               <div className="max-w-2xl">
-                <p className="eyebrow">the workbench</p>
-                <h2 className="mt-2 font-display text-3xl  leading-tight md:text-4xl">
+                <p className="badge-label text-muted">the workbench</p>
+                <h2 className="mt-4 font-display">
                   Run a free score on your real work
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft md:text-base">
+                <p className="mt-3 text-ink-soft">
                   Paste the target topic and the content you are working with. Relevnt
                   turns it into a scored, structured readout and ranked action list you
                   can act on immediately.
@@ -720,7 +708,7 @@ export default function App() {
               {/* iOS installation tip */}
               {showIosTooltip && (
                 <div
-                  className="accent-edge panel mt-8 flex items-center justify-between gap-3 p-4 text-xs text-[#9beaff]"
+                  className="accent-edge panel mt-8 flex items-center justify-between gap-3 p-4 text-xs text-ink-soft"
                   id="ios-pwa-tooltip"
                 >
                   <div className="flex items-center gap-2">
@@ -833,21 +821,21 @@ export default function App() {
                           Structuring job title clusters, mapping target industry categories, and formulating the Boolean search syntax...
                         </p>
                       </div>
-                      <div className="mt-2 h-1 w-48 overflow-hidden rounded-full border border-line bg-[#1c2333]">
+                      <div className="mt-2 h-1 w-48 overflow-hidden rounded-full border border-line bg-abyss">
                         <div className="h-1 animate-infinite-loading rounded-full bg-volt"></div>
                       </div>
                     </div>
                   )}
 
                   {!isGeneratingSourcing && sourcingError && (
-                    <div className="panel flex flex-col gap-3 border-[#ff5f77]/40 p-6">
+                    <div className="panel flex flex-col gap-3 border-rose-200 p-6">
                       <div className="flex items-center gap-2">
-                        <Info className="h-5 w-5 shrink-0 text-[#ff7a8a]" />
-                        <span className="font-head text-sm font-semibold text-[#ffc4cc]">
+                        <Info className="h-5 w-5 shrink-0 text-rose-500" />
+                        <span className="font-head text-sm font-semibold text-rose-700">
                           Failed to generate search parameters
                         </span>
                       </div>
-                      <p className="text-xs leading-relaxed text-[#ffa2ae]">
+                      <p className="text-xs leading-relaxed text-rose-600">
                         {sourcingError}. Please check your connection or try again.
                       </p>
                       <button
@@ -962,8 +950,8 @@ export default function App() {
                               {copiedField === "booleanSearchString" ? "Copied" : "Copy String"}
                             </button>
                           </div>
-                          <div className="bg-[#07090f] p-5">
-                            <p className="select-all break-words font-mono text-sm leading-relaxed text-[#9beaff]">
+                          <div className="bg-abyss p-5">
+                            <p className="select-all break-words font-mono text-sm leading-relaxed text-volt-dark">
                               {searchStrategy.booleanSearchString}
                             </p>
                           </div>
@@ -1083,19 +1071,19 @@ export default function App() {
                           Analyzing {outreachInputs.prospectName}'s recent post keywords to write a hyper-personalized trigger hook under 100 words...
                         </p>
                       </div>
-                      <div className="mt-2 h-1 w-48 overflow-hidden rounded-full border border-line bg-[#1c2333]">
+                      <div className="mt-2 h-1 w-48 overflow-hidden rounded-full border border-line bg-abyss">
                         <div className="h-1 animate-infinite-loading rounded-full bg-volt"></div>
                       </div>
                     </div>
                   )}
 
                   {!isGeneratingOutreach && outreachError && (
-                    <div className="panel flex flex-col gap-3 border-[#ff5f77]/40 p-6">
+                    <div className="panel flex flex-col gap-3 border-rose-200 p-6">
                       <div className="flex items-center gap-2">
-                        <Info className="h-5 w-5 shrink-0 text-[#ff7a8a]" />
-                        <span className="font-head text-sm font-semibold text-[#ffc4cc]">Failed to generate emails</span>
+                        <Info className="h-5 w-5 shrink-0 text-rose-500" />
+                        <span className="font-head text-sm font-semibold text-rose-700">Failed to generate emails</span>
                       </div>
-                      <p className="text-xs leading-relaxed text-[#ffa2ae]">
+                      <p className="text-xs leading-relaxed text-rose-600">
                         {outreachError}. Ensure all fields are correctly filled or try again.
                       </p>
                       <button
@@ -1171,7 +1159,7 @@ export default function App() {
                                   className={`flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium ${
                                     isWordCountCompliant
                                       ? "border-mint/40 bg-mint/10 text-mint"
-                                      : "border-[#ff5f77]/50 bg-[#ff5f77]/10 text-[#ff8fa0]"
+                                      : "border-rose-200 bg-rose-50 text-rose-700"
                                   }`}
                                 >
                                   <span className="font-bold">{totalWords}</span> / 100 words
@@ -1179,7 +1167,7 @@ export default function App() {
                               </div>
 
                               {/* Subject */}
-                              <div className="flex items-center gap-3 border-b border-line/60 bg-[#07090f] px-5 py-3.5">
+                              <div className="flex items-center gap-3 border-b border-line/60 bg-abyss px-5 py-3.5">
                                 <span className="font-mono text-xs text-muted">Subject:</span>
                                 {editingVariations[index] ? (
                                   <input
@@ -1242,19 +1230,19 @@ export default function App() {
                                   <BookOpen className="h-3 w-3" /> Copy Blueprint
                                 </span>
                                 <div className="grid grid-cols-1 gap-3 text-xs md:grid-cols-2">
-                                  <div className="rounded-lg border border-line bg-[#07090f] p-3">
+                                  <div className="rounded-lg border border-line bg-abyss p-3">
                                     <span className="font-head font-bold text-mint block mb-1">1. Trigger Hook</span>
                                     <p className="text-[11px] leading-relaxed text-[#cdd6ee]">{variation.frameworkBreakdown.triggerHook}</p>
                                   </div>
-                                  <div className="rounded-lg border border-line bg-[#07090f] p-3">
+                                  <div className="rounded-lg border border-line bg-abyss p-3">
                                     <span className="font-head font-bold text-volt block mb-1">2. Empathy Bridge</span>
                                     <p className="text-[11px] leading-relaxed text-[#cdd6ee]">{variation.frameworkBreakdown.empathyBridge}</p>
                                   </div>
-                                  <div className="rounded-lg border border-line bg-[#07090f] p-3">
+                                  <div className="rounded-lg border border-line bg-abyss p-3">
                                     <span className="font-head font-bold text-[#b6a8ff] block mb-1">3. Value Proof</span>
                                     <p className="text-[11px] leading-relaxed text-[#cdd6ee]">{variation.frameworkBreakdown.valueProof}</p>
                                   </div>
-                                  <div className="rounded-lg border border-line bg-[#07090f] p-3">
+                                  <div className="rounded-lg border border-line bg-abyss p-3">
                                     <span className="font-head font-bold text-amber block mb-1">4. Low-Friction CTA</span>
                                     <p className="text-[11px] leading-relaxed text-[#cdd6ee]">{variation.frameworkBreakdown.lowFrictionCta}</p>
                                   </div>
@@ -1298,8 +1286,8 @@ export default function App() {
         <section className="relative border-y border-line/60 bg-abyss py-20" id="how">
           <div className="mx-auto max-w-6xl px-5 md:px-6">
             <AnimateIn>
-              <p className="text-center eyebrow">three steps</p>
-              <h2 className="mx-auto mt-2 max-w-2xl text-center font-display text-3xl  leading-tight md:text-5xl">
+              <p className="text-center badge-label text-muted">three steps</p>
+              <h2 className="mx-auto mt-2 max-w-2xl text-center font-display">
                 From draft to scored, ranked and ready
               </h2>
             </AnimateIn>
@@ -1307,13 +1295,13 @@ export default function App() {
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {HOW_STEPS.map((s, i) => (
                 <AnimateIn key={s.n} delay={i * 100}>
-                  <div className="panel hover-glow p-7">
+                  <div className="panel hover-lift p-7">
                     <div className="flex items-center justify-between">
                       <span className="font-display text-4xl text-muted">{s.n}</span>
                       {i < 2 && <ArrowRight className="hidden h-5 w-5 text-muted md:block" />}
                     </div>
-                    <h3 className="mt-4 font-head text-lg font-semibold  tracking-wide">{s.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{s.text}</p>
+                    <h3 className="mt-4 font-head text-lg font-semibold">{s.title}</h3>
+                    <p className="mt-2 text-ink-soft">{s.text}</p>
                   </div>
                 </AnimateIn>
               ))}
@@ -1331,13 +1319,13 @@ export default function App() {
                     <RelevntLogo size={34} />
                   </span>
                   <div>
-                    <p className="eyebrow">why relevnt</p>
-                    <h2 className="mt-1 font-display text-2xl  leading-tight md:text-3xl">
+                    <p className="badge-label text-muted">why relevnt</p>
+                    <h2 className="mt-1 font-display text-2xl leading-tight md:text-3xl">
                       Built for work that ships
                     </h2>
                   </div>
                 </div>
-                <p className="mt-5 text-sm leading-relaxed text-ink-soft md:text-base">
+                <p className="mt-5 text-ink-soft">
                   Relevnt is built the way a content team actually works: score
                   everything, rank the work, ship with a reason. The output is a
                   verdict and a plan, not another opinion.
@@ -1374,13 +1362,10 @@ export default function App() {
 
         {/* ================= PRAISE ================= */}
         <section className="relative border-y border-line/60 bg-abyss py-20">
-          <div className="absolute inset-0">
-            <div className="aurora -top-20 left-[10%] h-72 w-72 bg-volt/10" />
-          </div>
           <div className="relative mx-auto max-w-6xl px-5 md:px-6">
             <AnimateIn>
-              <p className="text-center eyebrow">content team reports</p>
-              <h2 className="mx-auto mt-2 max-w-2xl text-center font-display text-3xl  leading-tight md:text-4xl">
+              <p className="text-center badge-label text-muted">content team reports</p>
+              <h2 className="mx-auto mt-2 max-w-2xl text-center font-display">
                 What teams do with the score
               </h2>
             </AnimateIn>
@@ -1406,8 +1391,8 @@ export default function App() {
         {/* ================= FAQ ================= */}
         <section className="mx-auto max-w-3xl px-5 py-20 md:px-6" id="faq">
           <AnimateIn>
-            <p className="text-center eyebrow">straight answers</p>
-            <h2 className="mt-2 text-center font-display text-3xl  leading-tight md:text-4xl">
+            <p className="text-center badge-label text-muted">straight answers</p>
+            <h2 className="mt-2 text-center font-display">
               Before you ask
             </h2>
           </AnimateIn>
@@ -1429,21 +1414,16 @@ export default function App() {
 
         {/* ================= CTA ================= */}
         <section className="relative overflow-hidden pb-24">
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute inset-0 hud-grid" />
-            <div className="aurora -bottom-24 right-[15%] h-80 w-80 bg-volt/15" />
-            <div className="aurora -top-16 left-[10%] h-64 w-64 bg-[#4EF2BA]/10" />
-          </div>
           <AnimateIn>
             <div className="accent-edge panel mx-auto max-w-4xl p-8 text-center md:p-12">
               <span className="mx-auto flex h-14 w-14 items-center justify-center">
                 <RelevntLogo size={40} />
               </span>
-              <p className="mt-4 eyebrow">go operational</p>
-              <h2 className="mx-auto mt-3 max-w-2xl font-display text-3xl  leading-tight md:text-5xl">
+              <p className="mt-4 badge-label text-muted">go operational</p>
+              <h2 className="mx-auto mt-3 max-w-2xl font-display">
                 Your next publish should earn its rank
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-ink-soft md:text-base">
+              <p className="mx-auto mt-4 max-w-xl text-ink-soft">
                 Score it free against the topic you are gunning for. No card, no
                 setup — paste your content and target topic, get a ranked gap list.
               </p>
@@ -1473,9 +1453,9 @@ export default function App() {
           <div className="flex flex-col items-center gap-2 md:items-start">
             <div className="flex items-center gap-2.5">
               <RelevntLogo size={22} />
-              <span className="font-display text-sm font-bold  tracking-[0.16em]">Relevnt</span>
+              <span className="font-display text-sm font-bold tracking-wide">Relevnt</span>
             </div>
-            <span className="font-mono text-[10px]  tracking-[0.2em] text-muted">
+            <span className="font-mono text-[10px] tracking-widest text-muted">
               Content relevance &amp; ranking agent
             </span>
           </div>

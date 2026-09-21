@@ -11,7 +11,7 @@ export default function RelevntLogo({
   size?: number;
   className?: string;
 }) {
-  const c = "#4DE3FF";
+  const c = "#0d9488";
   return (
     <svg
       width={size}
