@@ -198,10 +198,10 @@ function ScoreSurface() {
   return (
     <div className="accent-edge panel p-6 sm:p-7">
       <div className="flex items-center justify-between gap-3">
-        <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+        <span className="font-mono text-[11px]  tracking-[0.22em] text-muted">
           score run // live
         </span>
-        <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-volt">
+        <span className="flex items-center gap-1.5 font-mono text-[10px]  tracking-[0.16em] text-volt">
           <span className="pulse-dot flex h-1.5 w-1.5 rounded-full bg-volt" />
           ranked gaps
         </span>
@@ -225,24 +225,24 @@ function ScoreSurface() {
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <span className="font-display text-4xl font-bold text-glow-volt text-volt">82</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">/ 100</span>
+            <span className="font-mono text-[10px]  tracking-[0.18em] text-muted">/ 100</span>
           </div>
         </div>
         <div>
-          <p className="font-head text-lg font-semibold uppercase tracking-wide">
+          <p className="font-head text-lg font-semibold  tracking-wide">
             Topical-authority readiness
           </p>
           <p className="mt-1 max-w-[22rem] text-sm leading-relaxed text-ink-soft">
             Score: 82. Strong on coverage, thin on evidence and angle differentiation.
           </p>
-          <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+          <p className="mt-3 font-mono text-[10px]  tracking-[0.18em] text-muted">
             target topic: agentic workflows
           </p>
         </div>
       </div>
 
       <div className="mt-6 border-t border-line/60 pt-4">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+        <p className="font-mono text-[10px]  tracking-[0.2em] text-muted">
           gaps ranked — close first
         </p>
         <div className="mt-3 flex flex-col gap-3">
@@ -252,7 +252,7 @@ function ScoreSurface() {
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-2">
                   <span className="truncate text-sm font-head font-medium text-ink">{gap.label}</span>
-                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-wider text-muted">
+                  <span className="shrink-0 font-mono text-[10px]  tracking-wider text-muted">
                     {gap.meta}
                   </span>
                 </div>
@@ -501,7 +501,7 @@ export default function App() {
     >
       {/* ================= HEADER ================= */}
       <header className="sticky top-0 z-50" id="main-header">
-        <div className="border-b border-line/70 bg-[#05060b]/85 backdrop-blur-xl">
+        <div className="border-b border-line/70 bg-paper backdrop-blur-xl">
           <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
             <button
               onClick={() => goTo("top")}
@@ -512,10 +512,10 @@ export default function App() {
                 <RelevntLogo size={26} />
               </span>
               <span className="flex min-w-0 flex-col items-start">
-                <span className="font-display text-base font-bold uppercase tracking-[0.14em] text-ink">
+                <span className="font-display text-base font-bold  tracking-[0.14em] text-ink">
                   Relevnt
                 </span>
-                <span className="max-w-full truncate font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
+                <span className="max-w-full truncate font-mono text-[9px]  tracking-[0.2em] text-muted">
                   content ranking agent
                 </span>
               </span>
@@ -609,14 +609,14 @@ export default function App() {
                 <AnimateIn>
                   <span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs">
                     <RelevntLogo size={15} />
-                    <span className="font-head font-semibold uppercase tracking-[0.18em] text-ink-soft">
+                    <span className="font-head font-semibold  tracking-[0.18em] text-ink-soft">
                       Content relevance &amp; ranking agent
                     </span>
                   </span>
                 </AnimateIn>
 
                 <AnimateIn delay={80}>
-                  <h1 className="mt-7 font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+                  <h1 className="mt-7 font-display text-4xl font-bold  leading-[1.05] leading-tight sm:text-5xl md:text-6xl">
                     Know your{" "}
                     <span className="text-glow-volt text-volt">relevance score</span>{" "}
                     before you publish
@@ -647,7 +647,7 @@ export default function App() {
                       See how it works
                     </button>
                   </div>
-                  <p className="mt-5 font-mono text-xs uppercase tracking-[0.14em] text-muted">
+                  <p className="mt-5 font-mono text-xs  tracking-[0.14em] text-muted">
                     Try it free — paste your content + target topic
                   </p>
                   <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
@@ -672,19 +672,19 @@ export default function App() {
               <div className="mt-14 grid grid-cols-2 gap-6 border-t border-line/60 pt-8 sm:grid-cols-4">
                 <div className="text-center">
                   <p className="font-display text-3xl text-glow-white md:text-4xl">0-100</p>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.22em] text-muted">relevance score</p>
+                  <p className="mt-1 font-mono text-[11px]  tracking-[0.22em] text-muted">relevance score</p>
                 </div>
                 <div className="text-center">
                   <p className="font-display text-3xl text-glow-white md:text-4xl">ranked</p>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.22em] text-muted">gap list</p>
+                  <p className="mt-1 font-mono text-[11px]  tracking-[0.22em] text-muted">gap list</p>
                 </div>
                 <div className="text-center">
                   <p className="font-display text-3xl text-glow-white md:text-4xl">30s</p>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.22em] text-muted">to first score</p>
+                  <p className="mt-1 font-mono text-[11px]  tracking-[0.22em] text-muted">to first score</p>
                 </div>
                 <div className="text-center">
                   <p className="font-display text-3xl text-glow-white md:text-4xl">0</p>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.22em] text-muted">credit cards</p>
+                  <p className="mt-1 font-mono text-[11px]  tracking-[0.22em] text-muted">credit cards</p>
                 </div>
               </div>
             </AnimateIn>
@@ -705,7 +705,7 @@ export default function App() {
             <AnimateIn>
               <div className="max-w-2xl">
                 <p className="eyebrow">the workbench</p>
-                <h2 className="mt-2 font-display text-3xl uppercase tracking-tight md:text-4xl">
+                <h2 className="mt-2 font-display text-3xl  leading-tight md:text-4xl">
                   Run a free score on your real work
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-ink-soft md:text-base">
@@ -1299,7 +1299,7 @@ export default function App() {
           <div className="mx-auto max-w-6xl px-5 md:px-6">
             <AnimateIn>
               <p className="text-center eyebrow">three steps</p>
-              <h2 className="mx-auto mt-2 max-w-2xl text-center font-display text-3xl uppercase tracking-tight md:text-5xl">
+              <h2 className="mx-auto mt-2 max-w-2xl text-center font-display text-3xl  leading-tight md:text-5xl">
                 From draft to scored, ranked and ready
               </h2>
             </AnimateIn>
@@ -1312,7 +1312,7 @@ export default function App() {
                       <span className="font-display text-4xl text-muted">{s.n}</span>
                       {i < 2 && <ArrowRight className="hidden h-5 w-5 text-muted md:block" />}
                     </div>
-                    <h3 className="mt-4 font-head text-lg font-semibold uppercase tracking-wide">{s.title}</h3>
+                    <h3 className="mt-4 font-head text-lg font-semibold  tracking-wide">{s.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-ink-soft">{s.text}</p>
                   </div>
                 </AnimateIn>
@@ -1332,7 +1332,7 @@ export default function App() {
                   </span>
                   <div>
                     <p className="eyebrow">why relevnt</p>
-                    <h2 className="mt-1 font-display text-2xl uppercase tracking-tight md:text-3xl">
+                    <h2 className="mt-1 font-display text-2xl  leading-tight md:text-3xl">
                       Built for work that ships
                     </h2>
                   </div>
@@ -1344,7 +1344,7 @@ export default function App() {
                 </p>
                 <button
                   onClick={() => goTo("score-form")}
-                  className="mt-6 inline-flex items-center gap-2 font-head text-sm font-semibold text-volt transition hover:text-white cursor-pointer"
+                  className="mt-6 inline-flex items-center gap-2 font-head text-sm font-semibold text-volt transition hover:text-ink cursor-pointer"
                 >
                   Run a free score <ArrowRight className="h-4 w-4" />
                 </button>
@@ -1380,7 +1380,7 @@ export default function App() {
           <div className="relative mx-auto max-w-6xl px-5 md:px-6">
             <AnimateIn>
               <p className="text-center eyebrow">content team reports</p>
-              <h2 className="mx-auto mt-2 max-w-2xl text-center font-display text-3xl uppercase tracking-tight md:text-4xl">
+              <h2 className="mx-auto mt-2 max-w-2xl text-center font-display text-3xl  leading-tight md:text-4xl">
                 What teams do with the score
               </h2>
             </AnimateIn>
@@ -1407,7 +1407,7 @@ export default function App() {
         <section className="mx-auto max-w-3xl px-5 py-20 md:px-6" id="faq">
           <AnimateIn>
             <p className="text-center eyebrow">straight answers</p>
-            <h2 className="mt-2 text-center font-display text-3xl uppercase tracking-tight md:text-4xl">
+            <h2 className="mt-2 text-center font-display text-3xl  leading-tight md:text-4xl">
               Before you ask
             </h2>
           </AnimateIn>
@@ -1440,7 +1440,7 @@ export default function App() {
                 <RelevntLogo size={40} />
               </span>
               <p className="mt-4 eyebrow">go operational</p>
-              <h2 className="mx-auto mt-3 max-w-2xl font-display text-3xl uppercase tracking-tight md:text-5xl">
+              <h2 className="mx-auto mt-3 max-w-2xl font-display text-3xl  leading-tight md:text-5xl">
                 Your next publish should earn its rank
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-ink-soft md:text-base">
@@ -1473,9 +1473,9 @@ export default function App() {
           <div className="flex flex-col items-center gap-2 md:items-start">
             <div className="flex items-center gap-2.5">
               <RelevntLogo size={22} />
-              <span className="font-display text-sm font-bold uppercase tracking-[0.16em]">Relevnt</span>
+              <span className="font-display text-sm font-bold  tracking-[0.16em]">Relevnt</span>
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+            <span className="font-mono text-[10px]  tracking-[0.2em] text-muted">
               Content relevance &amp; ranking agent
             </span>
           </div>
@@ -1495,7 +1495,7 @@ export default function App() {
                 href="https://github.com/mhklogs/Relevnt"
                 target="_blank"
                 rel="noreferrer"
-                className="font-head text-xs font-semibold text-volt transition hover:text-white"
+                className="font-head text-xs font-semibold text-volt transition hover:text-ink"
               >
                 View Source
               </a>
